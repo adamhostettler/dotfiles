@@ -32,6 +32,7 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bitc/vim-bad-whitespace'
+Plugin 'mattn/emmet-vim'
 
 " fix for lavalamp theme
 Plugin 'godlygeek/csapprox'
