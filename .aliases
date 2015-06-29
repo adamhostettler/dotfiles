@@ -1,3 +1,16 @@
 # git related
 alias g="git"
 
+alias test="cd .."
+
+alias sublime="open -a /Applications/Sublime\ Text.app"
+alias notes="sublime /Users/ahostettle/Desktop/notes.py"
+
+# work related
+alias uscp="cd /Users/ahostettle/Sites/uscp/uscp-web"
+alias wsc="cd /Users/ahostettle/Sites/uscp/web-site-config"
+alias wsa="cd /Users/ahostettle/Sites/uscp/web-standard-apps"
+
+# functions
+function gupasrun() { cd /Users/ahostettle/Sites/gup/gupas ; workon gupui ; python manage.py runserver 8001 --settings="gupas.settings.local" ;}
+function gupuirun() { cd /Users/ahostettle/Sites/gup/gupui ; workon gupui ; python manage.py runserver --settings="gupui.settings_local" ;}
