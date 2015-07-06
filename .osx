@@ -81,7 +81,7 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 ###############################################################################
 
 # Desktop icons customization
-defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true 
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 defaulst write com.apple.finder ShowRemovableMediaOnDesktop -bool true

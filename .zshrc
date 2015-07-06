@@ -79,10 +79,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias wsa="cd ~/Sites/uscp/web-standard-apps"
-alias uscp="cd ~/Sites/uscp/uscp-web"
-alias wsc="cd ~/Sites/uscp/web-site-config"
-
 source /usr/local/bin/virtualenvwrapper.sh
 export WORKON_HOME=$HOME/.virtualenvs
 
