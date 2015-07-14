@@ -2,7 +2,6 @@
 #
 # git related
 alias g="git"
-alias v="vim"
 
 alias subl="open -a /Applications/Sublime\ Text.app"
 alias notes="vim /Users/ahostettle/Desktop/notes.py"
