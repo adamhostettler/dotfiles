@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=/Users/ahostettle/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -20,7 +20,7 @@ ZSH_THEME="adam"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -54,6 +54,10 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 source $ZSH/oh-my-zsh.sh
 
+for file in ~/.{path,bash_prompt,env,aliases,functions,extra}; do
+    [ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -84,3 +88,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+## set window title to shortened pwd
+#echo -ne "\e]1;${PWD##*/}\a"
+#precmd () { echo -ne "\e]1;${PWD##*/}\a" }

@@ -1,16 +1,26 @@
+## aliases
+#
 # git related
 alias g="git"
+alias v="vim"
 
-alias test="cd .."
+alias subl="open -a /Applications/Sublime\ Text.app"
+alias notes="vim /Users/ahostettle/Desktop/notes.py"
 
-alias sublime="open -a /Applications/Sublime\ Text.app"
-alias notes="sublime /Users/ahostettle/Desktop/notes.py"
+alias aliases="vim /Users/ahostettle/.aliases"
 
 # work related
 alias uscp="cd /Users/ahostettle/Sites/uscp/uscp-web"
 alias wsc="cd /Users/ahostettle/Sites/uscp/web-site-config"
 alias wsa="cd /Users/ahostettle/Sites/uscp/web-standard-apps"
+alias gupui="cd /Users/ahostettle/Sites/gup/gupui/gupui"
 
-# functions
+## functions
+#
+# creations of mine
+function title() { echo -ne "\e]1;$1\a" ;}
+
+# gup related
 function gupasrun() { cd /Users/ahostettle/Sites/gup/gupas ; workon gupui ; python manage.py runserver 8001 --settings="gupas.settings.local" ;}
 function gupuirun() { cd /Users/ahostettle/Sites/gup/gupui ; workon gupui ; python manage.py runserver --settings="gupui.settings_local" ;}
+function clrcache() { rm -rf /tmp/ui_service_framework ; echo "ui-service-framework cache cleared" ;}
