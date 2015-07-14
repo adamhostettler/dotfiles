@@ -90,5 +90,5 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PATH="/usr/local/heroku/bin:$PATH"
 
 ## set window title to shortened pwd
-#echo -ne "\e]1;${PWD##*/}\a"
+echo -ne "\e]1;${PWD##*/}\a"
 #precmd () { echo -ne "\e]1;${PWD##*/}\a" }
