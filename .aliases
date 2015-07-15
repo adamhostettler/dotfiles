@@ -1,3 +1,4 @@
+###
 ## aliases
 #
 # git related
@@ -6,14 +7,13 @@ alias g="git"
 alias subl="open -a /Applications/Sublime\ Text.app"
 alias notes="vim /Users/ahostettle/Desktop/notes.py"
 
-alias aliases="vim /Users/ahostettle/.aliases"
-
 # work related
 alias uscp="cd /Users/ahostettle/Sites/uscp/uscp-web"
 alias wsc="cd /Users/ahostettle/Sites/uscp/web-site-config"
 alias wsa="cd /Users/ahostettle/Sites/uscp/web-standard-apps"
 alias gupui="cd /Users/ahostettle/Sites/gup/gupui/gupui"
 
+###
 ## functions
 #
 # creations of mine
