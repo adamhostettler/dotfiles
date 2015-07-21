@@ -1,9 +1,3 @@
-# set encoding for use on linux/i3
-# for some reason it gets upset when encoding
-# is not specified :/
-set encoding=utf-8
-
-# begin preference settings
 set nocompatible
 set number
 set smartindent
@@ -61,7 +55,7 @@ let g:NERDTreeIgnore=['.pyc$[[file]]','__init__.py','.egg-info$']
 map <C-n> :NERDTreeToggle<CR>
 
 let g:airline_powerline_fonts=1
-set guifont=Anonymice\ Powerline
+set guifont=Droid\ Sans\ for\ Powerline
 let g:airline_theme='lavalamp'
 
 " remappings
