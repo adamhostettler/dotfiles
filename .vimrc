@@ -1,3 +1,9 @@
+# set encoding for use on linux/i3
+# for some reason it gets upset when encoding
+# is not specified :/
+set encoding=utf-8
+
+# begin preference settings
 set nocompatible
 set number
 set smartindent
