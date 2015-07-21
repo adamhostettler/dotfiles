@@ -1,81 +1,37 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/ahostettle/.oh-my-zsh
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -v
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/adam/.zshrc'
 
-# theme
-ZSH_THEME="adam"
+autoload -U compinit
+compinit
+# End of lines added by compinstall
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
-# User configuration
-
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # source all my dotfiles
-for file in ~/.{path,bash_prompt,env,aliases,functions,extra}; do
+for file in ~/.{env,aliases,functions,extra}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+# prompt customization
+autoload -U promptinit
+promptinit
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+function location {
+    echo "archbook" || echo ${SHORT_HOST:-HOST}
+}
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+local current_dir='${PWD/#$HOME/~}'
 
-source /usr/local/bin/virtualenvwrapper.sh
-export WORKON_HOME=$HOME/.virtualenvs
+# colors
+autoload -U colors && colors
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-## set window title to shortened pwd
-echo -ne "\e]1;${PWD##*/}\a"
-#precmd () { echo -ne "\e]1;${PWD##*/}\a" }
+# left prompt
+PROMPT="%{$fg_bold[green]%}%~"$'\n'"%{$fg[blue]%}%$%n%{$fg[white]@%{$reset_color%}%{$fg[blue]%}$(location)%{$reset_color%} %{$fg[magenta]%}%#%{$reset_color%} "
+# removed right prompt for now
+#RPROMPT="%{$fg[white]%}%*%{$reset_color%}"
