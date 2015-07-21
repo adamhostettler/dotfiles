@@ -20,6 +20,7 @@ alias uscp="cd /Users/ahostettle/Sites/uscp-web"
 alias wsc="cd /Users/ahostettle/Sites/web-site-config"
 alias wsa="cd /Users/ahostettle/Sites/web-standard-apps"
 alias gupui="cd /Users/ahostettle/Sites/gup/gupui/gupui"
+alias static="cd /Users/ahostettle/Sites/static-web"
 
 ###
 ## functions
@@ -31,3 +32,6 @@ function title() { echo -ne "\e]1;$1\a" ;}
 function gupasrun() { cd /Users/ahostettle/Sites/gup/gupas ; workon gupui ; python manage.py runserver 8001 --settings="gupas.settings.local" ;}
 function gupuirun() { cd /Users/ahostettle/Sites/gup/gupui ; workon gupui ; python manage.py runserver --settings="gupui.settings_local" ;}
 function clrcache() { rm -rf /tmp/ui_service_framework ; echo "ui-service-framework cache cleared" ;}
+
+# static
+function staticrun() { cd /Users/ahostettle/Sites/static-web ; workon static-web ; python manage.py runserver ;}
