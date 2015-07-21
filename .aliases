@@ -1,8 +1,15 @@
 ###
 ## aliases
 #
+# general
+alias ..="cd .."
+alias ...="cd ../.."
+alias l="ls -al"
+
 # git related
 alias g="git"
+alias gst="git status"
+alias grv="git remote -v"
 
 alias subl="open -a /Applications/Sublime\ Text.app"
 alias notes="vim /Users/ahostettle/Desktop/notes.py"
