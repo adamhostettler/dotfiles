@@ -6,6 +6,7 @@
 # options
 # -------
 setopt prompt_subst
+export EDITOR='vim'
 
 # -------
 # Lines configured by zsh-newuser-install
@@ -22,12 +23,34 @@ compinit
 # End of lines added by compinstall
 
 # -------
+# paths
+# -------
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+# -------
 # source all my dotfiles
 # -------
 for file in ~/.{env,aliases,functions,extra}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
+
+# -------
+# sweet function to set window title
+# -------
+echo -ne "\e]1;${PWD##*/}\a"
+#precmd () { echo -ne "\e]1;${PWD##*/}\a" }
+
+# -------
+# venv stuff
+# -------
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+
+# -------
+# heroku toolbelt stuff..
+# -------
+export PATH="/usr/local/heroku/bin:$PATH"
 
 # -------
 # prompt customization
@@ -54,6 +77,7 @@ local current_dir='${PWD/#$HOME/~}'
 
 # colors
 autoload -U colors && colors
+export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 
 # git status in prompt
 GIT_PROMPT_SYMBOL="%{$fg[yellow]%}±"
@@ -115,6 +139,7 @@ function git_prompt_string() {
 }
 
 # left prompt
-PROMPT='%{$fg_bold[green]%}%~%{$reset_color%} $(git_prompt_string)$(prompt_char)'$'\n''%{$fg[blue]%}%$%n%{$fg[white]@%{$reset_color%}%{$fg[blue]%}$(box_name)%{$reset_color%} %{$fg[magenta]%}%#%{$reset_color%} '
+PROMPT='%{$fg_bold[green]%}%~%{$reset_color%} $(git_prompt_string)$(prompt_char)'$'\n''%{$fg[blue]%}%$%n%{$fg[white]%}@%{$reset_color%}%{$fg[blue]%}$(box_name)%{$reset_color%} %{$fg[magenta]%}%#%{$reset_color%} '
 # removed right prompt for now
 #RPROMPT="%{$fg[white]%}%*%{$reset_color%}"
+RPROMPT='%{$fg[white]%}$(virtualenv_info)%{$reset_color%}'
