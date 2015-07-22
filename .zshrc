@@ -79,6 +79,7 @@ local current_dir='${PWD/#$HOME/~}'
 
 # colors
 autoload -U colors && colors
+export CLICOLOR=1
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 
 # git status in prompt
