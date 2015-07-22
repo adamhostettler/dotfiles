@@ -5,8 +5,10 @@
 # -------
 # options
 # -------
+# enable param exp, command subst, and arithmetic exp
 setopt prompt_subst
-export EDITOR='vim'
+# only show rprompt on current line
+setopt transient_rprompt
 
 # -------
 # Lines configured by zsh-newuser-install
