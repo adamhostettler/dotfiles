@@ -5,6 +5,8 @@
 # -------
 # options
 # -------
+# no beeping
+setopt no_beep
 # enable param exp, command subst, and arithmetic exp
 setopt prompt_subst
 # only show rprompt on current line
@@ -24,15 +26,11 @@ autoload -U compinit
 compinit
 # End of lines added by compinstall
 
-# -------
-# paths
-# -------
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # -------
 # source all my dotfiles
 # -------
-for file in ~/.{env,aliases,functions,extra}; do
+for file in ~/.{env,aliases}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
@@ -44,25 +42,14 @@ echo -ne "\e]1;${PWD##*/}\a"
 #precmd () { echo -ne "\e]1;${PWD##*/}\a" }
 
 # -------
-# venv stuff
-# -------
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-
-# -------
-# heroku toolbelt stuff..
-# -------
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# -------
 # prompt customization
 # -------
 autoload -U promptinit
 promptinit
 
-function virtualenv_info {
-    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
-}
+#function virtualenv_info {
+#    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
+#}
 
 function prompt_char {
     git branch >/dev/null 2>/dev/null && echo '±' && return
@@ -79,8 +66,6 @@ local current_dir='${PWD/#$HOME/~}'
 
 # colors
 autoload -U colors && colors
-export CLICOLOR=1
-export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 
 # git status in prompt
 GIT_PROMPT_SYMBOL="%{$fg[yellow]%}±"
@@ -145,4 +130,4 @@ function git_prompt_string() {
 PROMPT='%{$fg_bold[green]%}%~%{$reset_color%} $(git_prompt_string)$(prompt_char)'$'\n''%{$fg[blue]%}%$%n%{$fg[white]%}@%{$reset_color%}%{$fg[blue]%}$(box_name)%{$reset_color%} %{$fg[magenta]%}%#%{$reset_color%} '
 # removed right prompt for now
 #RPROMPT="%{$fg[white]%}%*%{$reset_color%}"
-RPROMPT='%{$fg[white]%}$(virtualenv_info)%{$reset_color%}'
+#RPROMPT='%{$fg[white]%}$(virtualenv_info)%{$reset_color%}'
