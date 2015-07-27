@@ -25,7 +25,8 @@ zstyle :compinstall filename '/home/adam/.zshrc'
 autoload -U compinit
 compinit
 # End of lines added by compinstall
-
+# case-insensitive autocomplete
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # -------
 # source all my dotfiles
