@@ -44,7 +44,7 @@ syntax on
 
 " colorscheme and background
 set background=dark
-colorscheme lavalamp
+colorscheme sourcerer
 
 " 256 colors fixes
 set t_Co=256
@@ -56,7 +56,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 let g:airline_powerline_fonts=1
 set guifont=Droid\ Sans\ for\ Powerline
-let g:airline_theme='lavalamp'
+"let g:airline_theme='lavalamp'
 
 " remappings
 let mapleader=','
