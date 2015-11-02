@@ -9,6 +9,7 @@ alias l="ls -al"
 
 # git related
 alias g="git"
+alias gs="git status --short"
 alias gst="git status"
 alias grv="git remote -v"
 

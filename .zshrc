@@ -25,8 +25,13 @@ zstyle :compinstall filename '/home/adam/.zshrc'
 autoload -U compinit
 compinit
 # End of lines added by compinstall
+
+# -------
+# completion
+# -------
 # case-insensitive autocomplete
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+compdef g=git
 
 # -------
 # source all my dotfiles
@@ -39,7 +44,8 @@ unset file;
 # -------
 # sweet function to set window title
 # -------
-echo -ne "\e]1;${PWD##*/}\a"
+echo -ne "\e]1;terminal\a"
+#echo -ne "\e]1;${PWD##*/}\a"
 #precmd () { echo -ne "\e]1;${PWD##*/}\a" }
 
 # -------
@@ -129,6 +135,7 @@ function git_prompt_string() {
 
 # left prompt
 PROMPT='%{$fg_bold[green]%}%~%{$reset_color%} $(git_prompt_string)$(prompt_char)'$'\n''%{$fg[blue]%}%$%n%{$fg[white]%}@%{$reset_color%}%{$fg[blue]%}$(box_name)%{$reset_color%} %{$fg[magenta]%}%#%{$reset_color%} '
+#PROMPT='%{$fg_bold[green]%}%~%{$reset_color%} $(git_prompt_string)$(prompt_char)'$'\n''%{$fg[magenta]%}%#%{$reset_color%} '
 # removed right prompt for now
 #RPROMPT="%{$fg[white]%}%*%{$reset_color%}"
 #RPROMPT='%{$fg[white]%}$(virtualenv_info)%{$reset_color%}'
