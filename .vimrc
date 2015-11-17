@@ -1,66 +1,82 @@
+" Adam Hostettler
+
+" Misc {{{
+set modelines=1
 set nocompatible
-set number
-set smartindent
+set noswapfile  "don't use swapfile
+set laststatus=2  "statusbar on all splits
+" }}}
+
+" Spaces & Tabs {{{
+set noexpandtab
 set copyindent
-"set cursorline
+set preserveindent
+set softtabstop=0
 set shiftwidth=4
-set softtabstop=4
 set tabstop=4
-set smarttab
-set shiftround
+"set smartindent
+"set shiftround
+" }}}
+
+" Color {{{
+syntax enable
+let g:hybrid_use_Xresources = 1
+set background=dark
+colorscheme hybrid
+" }}}
+
+" Font {{{
+let g:airline_powerline_fonts = 1
+set guifont=Droid\ Sans\ for\ Powerline
+" }}}
+
+" UI Layout {{{
+set number
+set cursorline
 set nowrap
-set noswapfile
-set timeoutlen=50
-"set notimeout
-"set nottimeout
-set laststatus=2
+set wildmenu
+" }}}
+
+" Searching {{{
 set incsearch
 set hlsearch
-set noexpandtab
+" }}}
 
-syntax enable
+" Key Timeouts {{{
+set timeoutlen=700
+set ttimeoutlen=50
+" }}}
+
+" Vundle {{{
 filetype off
-
-" begin vundle stuff
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" plugins
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bitc/vim-bad-whitespace'
-Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
-
-" fix for lavalamp theme
-Plugin 'godlygeek/csapprox'
+Plugin 'w0ng/vim-hybrid'
 
 call vundle#end()
 filetype plugin indent on
 syntax on
-" end vundle stuff
+" }}}
 
-" bg & colorscheme
-set background=dark
-colorscheme sourcerer
-
-" 256 colors fixes
-set t_Co=256
-
-let g:airline_powerline_fonts=1
-set guifont=Droid\ Sans\ for\ Powerline
-"let g:airline_theme='lavalamp'
-
-" remappings
-noremap <cr> :
-nnoremap ; :
-nmap <leader>t :TagbarToggle<CR>
-
-" trying to fix airline things
+" Airline {{{
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
+" }}}
+
+" Remappings {{{
+noremap <cr> :
+nnoremap ; :
+nmap <leader>t :TagbarToggle<CR>
+" }}}
+
+" vim:foldmethod=marker:foldlevel=0

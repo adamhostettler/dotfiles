@@ -130,12 +130,15 @@ function parse_git_state() {
 # if in a repo then print branch/state
 function git_prompt_string() {
     local git_where="$(parse_git_branch)"
-    [ -n "$git_where" ] && echo "on %{$fg[blue]%}${git_where#(refs/heads/|tags/)}$(parse_git_state)"
+    [ -n "$git_where" ] && echo "%{$fg[blue]%} ${git_where#(refs/heads/|tags/)}$(parse_git_state)"
 }
 
 # left prompt
-PROMPT='%{$fg_bold[green]%}%~%{$reset_color%} $(git_prompt_string)$(prompt_char)'$'\n''%{$fg[blue]%}%$%n%{$fg[white]%}@%{$reset_color%}%{$fg[blue]%}$(box_name)%{$reset_color%} %{$fg[magenta]%}%#%{$reset_color%} '
+PROMPT='%{$fg_bold[cyan]%}%~%{$reset_color%} $(git_prompt_string)$(prompt_char) %{$fg[red]%}%#%{$reset_color%} '
+#PROMPT='%{$fg_bold[green]%}%~%{$reset_color%} $(git_prompt_string)$(prompt_char)'$'\n''%{$fg[blue]%}%$%n%{$fg[white]%}@%{$reset_color%}%{$fg[blue]%}$(box_name)%{$reset_color%} %{$fg[magenta]%}%#%{$reset_color%} '
 #PROMPT='%{$fg_bold[green]%}%~%{$reset_color%} $(git_prompt_string)$(prompt_char)'$'\n''%{$fg[magenta]%}%#%{$reset_color%} '
 # removed right prompt for now
 #RPROMPT="%{$fg[white]%}%*%{$reset_color%}"
 #RPROMPT='%{$fg[white]%}$(virtualenv_info)%{$reset_color%}'
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
