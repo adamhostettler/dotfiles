@@ -1,5 +1,3 @@
-" Adam Hostettler
-
 " Misc {{{
 set modelines=1
 set nocompatible
@@ -59,7 +57,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'bitc/vim-bad-whitespace'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'w0ng/vim-hybrid'
+Plugin 'NLKNguyen/papercolor-theme'
 
 call vundle#end()
 filetype plugin indent on
@@ -77,6 +75,13 @@ let g:airline_symbols.space = "\ua0"
 noremap <cr> :
 nnoremap ; :
 nmap <leader>t :TagbarToggle<CR>
+" }}}
+
+" Autogroups {{{
+augroup configgroup
+	autocmd!
+	autocmd FileType python setlocal noexpandtab
+augroup END
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
