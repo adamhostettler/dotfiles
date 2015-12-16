@@ -134,7 +134,7 @@ function git_prompt_string() {
 }
 
 # current left prompt
-PROMPT='%K{green} %~ %k%{$fg[green]%}%K{white} %k%{$reset_color%}%K{white}$(git_prompt_string)%k%K{white}$(prompt_char) %k%{$fg[blue]%}%{$reset_color%} '
+PROMPT='%K{green} %~ %k%{$fg[green]%}%K{white} %k%{$reset_color%}%K{white}$(git_prompt_string)%k%K{white}$(prompt_char) %k%{$fg[white]%}%{$reset_color%} '
 # old prompts
 #PROMPT='%{$fg_bold[cyan]%}%~%{$reset_color%} $(git_prompt_string)$(prompt_char) %{$fg[red]%}%#%{$reset_color%} '
 #PROMPT='%{$fg_bold[green]%}%~%{$reset_color%} $(git_prompt_string)$(prompt_char)'$'\n''%{$fg[blue]%}%$%n%{$fg[white]%}@%{$reset_color%}%{$fg[blue]%}$(box_name)%{$reset_color%} %{$fg[magenta]%}%#%{$reset_color%} '
