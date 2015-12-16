@@ -16,21 +16,8 @@ alias grv="git remote -v"
 alias subl="open -a /Applications/Sublime\ Text.app"
 alias notes="vim /Users/ahostettle/Desktop/notes.py"
 
-# work related
-alias uscp="cd /Users/ahostettle/Sites/uscp-web"
-alias wsc="cd /Users/ahostettle/Sites/web-site-config"
-alias wsa="cd /Users/ahostettle/Sites/web-standard-apps"
-alias gup="cd /Users/ahostettle/Sites/gup/gupui"
-alias static="cd /Users/ahostettle/Sites/static-web"
-
 ###
 # Functions
 ###
 # creations of mine
 function title() { echo -ne "\e]1;$1\a" ;}
-
-# gup related
-function gupasrun() { cd /Users/ahostettle/Sites/gup/gupas ; workon gupui ; python manage.py runserver 8001 --settings="gupas.settings.local" ;}
-function gupuirun() { cd /Users/ahostettle/Sites/gup/gupui ; workon gupui ; python manage.py runserver --settings="gupui.settings_local" ;}
-function clrcache() { rm -rf /tmp/ui_service_framework ; echo "ui-service-framework cache cleared" ;}
-function gupui() { cd /Users/ahostettle/Sites/gup/gupui ; workon gupui ;}
