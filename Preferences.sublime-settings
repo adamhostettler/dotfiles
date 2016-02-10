@@ -1,13 +1,23 @@
 {
-	"color_scheme": "Packages/Solarized Color Scheme/Solarized (light).tmTheme",
-	"font_face": "Anonymous Pro",
-	"font_size": 14.0,
+	"bold_folder_labels": true,
+	"caret_style": "phase",
+	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
+	"ensure_newline_at_eof_on_save": true,
+	"find_selected_text": true,
+	"font_face": "Roboto Mono for Powerline",
+	"font_size": 15.0,
+	"highlight_line": false,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
 		"Vintage"
 	],
-	"theme": "Soda SolarizedDark.sublime-theme",
-	"translate_tabs_to_spaces": true,
+	"line_padding_bottom": 2,
+	"scroll_past_end": true,
+	"show_encoding": true,
+	"spacegray_tabs_font_normal": true,
+	"spacegray_tabs_normal": true,
+	"theme": "Spacegray.sublime-theme",
+	"translate_tabs_to_spaces": false,
 	"word_wrap": true
 }
