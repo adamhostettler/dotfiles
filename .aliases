@@ -7,6 +7,10 @@ alias ...="cd ../.."
 alias ls="ls -G"
 alias l="ls -al"
 
+# shortcuts
+alias showdots="defaults write com.apple.finder AppleShowAllFiles True"
+alias hidedots="defaults write com.apple.finder AppleShowAllFiles False"
+
 # git related
 alias g="git"
 alias gs="git status --short"
