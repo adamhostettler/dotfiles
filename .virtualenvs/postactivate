@@ -2,4 +2,4 @@
 # This hook is sourced after every virtualenv is activated.
 PS1="$_OLD_VIRTUAL_PS1"
 _OLD_RPROMPT="$RPROMPT"
-RPROMPT="%{$fg[magenta]%}%{$reset_color%}%K{magenta}%{$fg_bold[black]%} env: `basename \"$VIRTUAL_ENV\"` %k%{${reset_color}%}"
+RPROMPT="%{$fg[blue]%} env: `basename \"$VIRTUAL_ENV\"` %{${reset_color}%}"

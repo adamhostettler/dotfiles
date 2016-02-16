@@ -75,15 +75,26 @@ local current_dir='${PWD/#$HOME/~}'
 autoload -U colors && colors
 
 # git status in prompt
-GIT_PROMPT_SYMBOL="%K{white}%{$fg[yellow]%}±%k"
-GIT_PROMPT_PREFIX="%K{white}%{$fg[yellow]%} %{$reset_color%}%k"
-GIT_PROMPT_SUFFIX="%K{white}%{$reset_color%}%k"
-GIT_PROMPT_AHEAD="%K{white}%{$fg[red]%}ANUM%{$reset_color%}%k"
-GIT_PROMPT_BEHIND="%K{white}%{$fg[cyan]%}BNUM%{$reset_color%}%k"
-GIT_PROMPT_MERGING="%K{white}%{$fg_bold[magenta]%}∆%{$reset_color%}%k"
-GIT_PROMPT_UNTRACKED="%K{white}%{$fg_bold[red]%}u%{$reset_color%}%k"
-GIT_PROMPT_MODIFIED="%K{white}%{$fg_bold[yellow]%}d%{$reset_color%}%k"
-GIT_PROMPT_STAGED="%K{white}%{$fg_bold[green]%}s%{$reset_color%}%k"
+GIT_PROMPT_SYMBOL="%{$fg[yellow]%}±"
+GIT_PROMPT_PREFIX="%{$fg[yellow]%} %{$reset_color%}"
+GIT_PROMPT_SUFFIX="%{$reset_color%}"
+GIT_PROMPT_AHEAD="%{$fg[cyan]%}ANUM%{$reset_color%}"
+GIT_PROMPT_BEHIND="%{$fg[cyan]%}BNUM%{$reset_color%}"
+GIT_PROMPT_MERGING="%{$fg_bold[magenta]%}∆%{$reset_color%}"
+GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}u%{$reset_color%}"
+GIT_PROMPT_MODIFIED="%{$fg_bold[yellow]%}d%{$reset_color%}"
+GIT_PROMPT_STAGED="%{$fg_bold[green]%}s%{$reset_color%}"
+
+# old git status in prompt (bg colors)
+#GIT_PROMPT_SYMBOL="%K{white}%{$fg[yellow]%}±%k"
+#GIT_PROMPT_PREFIX="%K{white}%{$fg[yellow]%} %{$reset_color%}%k"
+#GIT_PROMPT_SUFFIX="%K{white}%{$reset_color%}%k"
+#GIT_PROMPT_AHEAD="%K{white}%{$fg[red]%}ANUM%{$reset_color%}%k"
+#GIT_PROMPT_BEHIND="%K{white}%{$fg[cyan]%}BNUM%{$reset_color%}%k"
+#GIT_PROMPT_MERGING="%K{white}%{$fg_bold[magenta]%}∆%{$reset_color%}%k"
+#GIT_PROMPT_UNTRACKED="%K{white}%{$fg_bold[red]%}u%{$reset_color%}%k"
+#GIT_PROMPT_MODIFIED="%K{white}%{$fg_bold[yellow]%}d%{$reset_color%}%k"
+#GIT_PROMPT_STAGED="%K{white}%{$fg_bold[green]%}s%{$reset_color%}%k"
 
 # show git branch
 function parse_git_branch() {
@@ -134,8 +145,9 @@ function git_prompt_string() {
 }
 
 # current left prompt
-PROMPT='%K{green} %~ %k%{$fg[green]%}%K{white} %k%{$reset_color%}%K{white}$(git_prompt_string)%k%K{white}$(prompt_char) %k%{$fg[white]%}%{$reset_color%} '
+PROMPT='%{$fg[red]%}%~  %{$fg[white]%}$(git_prompt_string)$(prompt_char) %{$reset_color%} '
 # old prompts
+#PROMPT='%K{green} %~ %k%{$fg[green]%}%K{white} %k%{$reset_color%}%K{white}$(git_prompt_string)%k%K{white}$(prompt_char) %k%{$fg[white]%}%{$reset_color%} '
 #PROMPT='%{$fg_bold[cyan]%}%~%{$reset_color%} $(git_prompt_string)$(prompt_char) %{$fg[red]%}%#%{$reset_color%} '
 #PROMPT='%{$fg_bold[green]%}%~%{$reset_color%} $(git_prompt_string)$(prompt_char)'$'\n''%{$fg[blue]%}%$%n%{$fg[white]%}@%{$reset_color%}%{$fg[blue]%}$(box_name)%{$reset_color%} %{$fg[magenta]%}%#%{$reset_color%} '
 #PROMPT='%{$fg_bold[green]%}%~%{$reset_color%} $(git_prompt_string)$(prompt_char)'$'\n''%{$fg[magenta]%}%#%{$reset_color%} '
