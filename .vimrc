@@ -12,6 +12,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'atelierbram/vim-colors_duotones'
 Plugin 'mileszs/ack.vim'
+Plugin 'w0ng/vim-hybrid'
 
 call vundle#end()
 filetype plugin indent on
