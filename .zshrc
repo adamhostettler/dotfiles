@@ -45,14 +45,7 @@ unset file;
 # sweet function to set window title
 # -------
 echo -ne "\e]1;terminal\a"
-#echo -ne "\e]1;${PWD##*/}\a"
 #precmd () { echo -ne "\e]1;${PWD##*/}\a" }
-
-# -------
-# Base16 Shell
-# -------
-BASE16_SHELL="$HOME/.config/base16-shell/base16-paraiso.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # -------
 # prompt customization
@@ -78,6 +71,7 @@ function box_name {
 local current_dir='${PWD/#$HOME/~}'
 
 # colors
+# colorschemes here -> https://github.com/mbadolato/iTerm2-Color-Schemes
 autoload -U colors && colors
 
 # git status in prompt
