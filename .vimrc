@@ -4,14 +4,14 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'bling/vim-airline'
+Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bitc/vim-bad-whitespace'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'atelierbram/vim-colors_duotones'
 Plugin 'mileszs/ack.vim'
+Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -39,13 +39,14 @@ set smartindent
 
 " Color {{{
 syntax enable
-let g:hybrid_use_Xresources = 1
+let base16colorspace=256
+"let g:hybrid_use_Xresources = 1
 set background=dark
-colorscheme hybrid
+colorscheme base16-paraiso
 " }}}
 
 " Font {{{
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
 set guifont=Fira\ Mono\ for\ Powerline:h14
 set linespace=4
 " }}}
@@ -68,11 +69,27 @@ set timeoutlen=700
 set ttimeoutlen=50
 " }}}
 
+" Lightline {{{
+let g:lightline = {
+      \ 'colorscheme': 'seoul256',
+	  \ 'active': {
+	  \   'left': [ [ 'mode', 'paste' ],
+	  \				[ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+	  \ },
+	  \ 'component': {
+	  \	  'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+	  \ },
+	  \ 'component_visible_condition': {
+	  \	  'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+	  \ }
+      \ }
+" }}}
+
 " Airline {{{
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
+"if !exists('g:airline_symbols')
+"    let g:airline_symbols = {}
+"endif
+"let g:airline_symbols.space = '"\ua0"'
 " }}}
 
 " Remappings {{{

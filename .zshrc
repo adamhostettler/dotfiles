@@ -49,6 +49,12 @@ echo -ne "\e]1;terminal\a"
 #precmd () { echo -ne "\e]1;${PWD##*/}\a" }
 
 # -------
+# Base16 Shell
+# -------
+BASE16_SHELL="$HOME/.config/base16-shell/base16-paraiso.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+# -------
 # prompt customization
 # -------
 autoload -U promptinit
