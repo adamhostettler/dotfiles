@@ -44,7 +44,7 @@ unset file;
 # -------
 # sweet function to set window title
 # -------
-echo -ne "\e]1;terminal\a"
+#echo -ne "\e]1;terminal\a"
 #precmd () { echo -ne "\e]1;${PWD##*/}\a" }
 
 # -------
@@ -139,13 +139,14 @@ function parse_git_state() {
 }
 
 # if in a repo then print branch/state
+# saving branch icon here: 
 function git_prompt_string() {
     local git_where="$(parse_git_branch)"
-    [ -n "$git_where" ] && echo " ${git_where#(refs/heads/|tags/)}$(parse_git_state)"
+    [ -n "$git_where" ] && echo "${git_where#(refs/heads/|tags/)}$(parse_git_state)"
 }
 
 # current left prompt
-PROMPT='%{$fg[red]%}%~  %{$fg[white]%}$(git_prompt_string)$(prompt_char) %{$reset_color%} '
+PROMPT='%{$fg[cyan]%}%~ %{$fg[white]%}$(git_prompt_string)$(prompt_char) %{$reset_color%}'
 # old prompts
 #PROMPT='%K{green} %~ %k%{$fg[green]%}%K{white} %k%{$reset_color%}%K{white}$(git_prompt_string)%k%K{white}$(prompt_char) %k%{$fg[white]%}%{$reset_color%} '
 #PROMPT='%{$fg_bold[cyan]%}%~%{$reset_color%} $(git_prompt_string)$(prompt_char) %{$fg[red]%}%#%{$reset_color%} '
